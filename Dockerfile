@@ -2,21 +2,23 @@
 FROM node:18 AS builder
 WORKDIR /app
 
-# Копируем только манифесты зависимостей клиента
+# 1) Копируем зависимости клиента
 COPY client/package.json client/package-lock.json ./
 RUN npm install
 
-# Копируем исходники (но не node_modules!)
+# 2) Копируем исходники и корневой public
 COPY client/src ./src
-COPY client/public ./public
+COPY public ./public
 
-# Собираем
+# 3) Собираем бандл
 RUN npm run build
 
-# Stage 2: nginx отдаёт статику
+# Stage 2: nginx отдаёт готовый build
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
 
+# Копируем билд из первого этапа
 COPY --from=builder /app/build .
+
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
