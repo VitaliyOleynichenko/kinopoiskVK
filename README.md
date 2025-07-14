@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# MovieLab — Простое SPA для просмотра фильмов
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**MovieLab** — это одностраничное приложение на React + TypeScript с бесконечным скроллом, фильтрами и возможностью добавлять фильмы в «Избранное». Данные берутся из публичного Kinopoisk API.
 
-## Available Scripts
 
-In the project directory, you can run:
+## 📂 Структура проекта
 
-### `npm start`
+.
+├── client/ # React-клиент
+│ ├── Dockerfile
+│ ├── docker-compose.yml
+│ ├── src/
+│ ├── public/
+│ ├── .env.default
+│ └── package.json
+└── README.md # Вы на него смотрите :)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Быстрый старт
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Клонируйте репозиторий**  
+   ```bash
+   git clone https://github.com/<ваш-пользователь>/<ваш-репо>.git
+   cd <ваш-репо>
+Перейдите в папку клиента
+cd client
 
-### `npm test`
+Откройте .env и пропишите ваш ключ:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+REACT_APP_KP_API_URL=https://api.kinopoisk.dev
+REACT_APP_KP_API_KEY=ВАШ_КЛЮЧ_ОТ_API
+Запустите приложение через Docker Compose
 
-### `npm run build`
+docker compose up --build
+Откройте в браузере
+http://localhost:3000
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🎉 Ура! Всё работает!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+📋 Кратко о функционале
+Бесконечный скролл — подгрузка по 50 фильмов на страницу
 
-### `npm run eject`
+Фильтры — по жанру, рейтингу и году (синхронизация с URL)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Детальная страница — постер, описание, дата, жанры, рейтинг
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Избранное — сохраняется в LocalStorage, добавление через модальное окно
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+📦 Технологии
+React + TypeScript
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+MobX для управления состоянием
 
-## Learn More
+Material UI для компонентов
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Axios для HTTP-запросов
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Docker + Docker Compose для контейнеризации
