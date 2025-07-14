@@ -31,6 +31,7 @@ REACT_APP_KP_API_KEY=ВАШ_КЛЮЧ_ОТ_API
 Запустите приложение через Docker Compose
 
 docker compose up --build
+
 Откройте в браузере
 http://localhost:3000
 
