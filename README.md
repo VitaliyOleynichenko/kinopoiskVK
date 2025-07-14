@@ -22,12 +22,14 @@
    git clone https://github.com/<ваш-пользователь>/<ваш-репо>.git
    cd <ваш-репо>
 Перейдите в папку клиента
+
 cd client
 
 Откройте .env и пропишите ваш ключ:
 
 REACT_APP_KP_API_URL=https://api.kinopoisk.dev
 REACT_APP_KP_API_KEY=ВАШ_КЛЮЧ_ОТ_API
+
 Запустите приложение через Docker Compose
 
 docker compose up --build
